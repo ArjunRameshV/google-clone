@@ -1,43 +1,48 @@
-# Getting Started with Create React App
+# Google search clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project hopes to replicate the working of the google search page. It uses the Google's [custom search API](https://developers.google.com/custom-search/v1/overview) to get the search results. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is created to explore custom designs on one of the most visited pages in the internet, the google landing page. It is strictly for learning.
+
+## Working 
+
+The project consists of a front-end and a backend. The front end, created using React is used to shows all the screens that display the landing page and search result page.
+
+The backend, created using express, acts as a proxy that makes the api call.
+
+## Prerequisites
+
+There are a few prerequisited before one can run this application locally. The application makes use of Google's custom search API, which requires an API key. You can generate your API key from [here](https://developers.google.com/custom-search/v1/overview#api_key)
+
+We also need to create a [Programmable Search Engine](https://developers.google.com/custom-search/docs/tutorial/creatingcse#defining_a_programmable_search_engine_in_control_panel), which can be done from [here](https://programmablesearchengine.google.com/controlpanel/all). You can `Add` a new engine, select `search the entire web` and `create`. Once that is created, click on `Customize` button. You will get redirected to the legacy console, from where you have to `Copy to clipboard` the `Search engine ID`.
+
+We will need to store these two pieces of information in a `.env`
+The `.env` file would have two variables :
+```
+ REACT_APP_SEARCH_API_KEY="<YOUR-API-KEY>"
+
+ REACT_APP_BROWSER_CONTEXT_KEY="<YOUR-BROWSER-CONTEXT-KEY>"
+```
+
+## How to run the project
+
+To install necessary packages: `npm i`
+
+`npm start:backend` followed by `npm start:frontend` to run the app (from the project root directory).
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start:backend`
 
-Runs the app in the development mode.\
+Runs the app's backend in the development mode.\
+Open [http://localhost:8000](http://localhost:8000) to view console errors if any in the browser. The frontend will be making calls to the backend to get the search results. 
+
+#### `npm start:frontend`
+
+Runs the app's frontend in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Other *create-react-app* native scripts.
 
 ## Learn More
 
@@ -68,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+<a name="scripts"/>
+## Available Scripts
